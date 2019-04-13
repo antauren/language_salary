@@ -39,13 +39,13 @@ def get_predict_salary(salary_from, salary_to):
 def get_stat_dict(salary_list) -> dict:
     vacancies_found = len(salary_list)
 
-    salary_list = list(filter(lambda x: x is not None, salary_list))
+    salary_list_filtered = [salary for salary in salary_list if salary is not None]
 
-    vacancies_processed = len(salary_list)
+    vacancies_processed = len(salary_list_filtered)
 
     return {'vacancies_found': vacancies_found,
             'vacancies_processed': vacancies_processed,
-            'avarage_salary': int(mean(salary_list))
+            'avarage_salary': int(mean(salary_list_filtered))
 
             }
 
