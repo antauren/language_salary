@@ -16,7 +16,7 @@ def make_table(data: list, title: str) -> str:
         table.append(row)
 
     table_instance = SingleTable(table, title)
-    for index in 1, 2, 3:
+    for index in range(1, len(header)):
         table_instance.justify_columns[index] = 'right'
 
     return table_instance.table
