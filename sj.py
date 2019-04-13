@@ -21,7 +21,7 @@ def get_predict_rub_salary_sj(vacancy):
 
     payment_from, payment_to = vacancy['payment_from'], vacancy['payment_to']
 
-    payment_from, payment_to = map(lambda payment: None if not payment else payment, [payment_from, payment_to])
+    payment_from, payment_to = payment_from or None, payment_to or None
 
     return get_predict_salary(payment_from, payment_to)
 
