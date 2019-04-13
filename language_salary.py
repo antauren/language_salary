@@ -11,8 +11,6 @@ if __name__ == '__main__':
         'count': 100,
         'town': 4,  # Москва
         'catalogues': 48,
-        # 'not_archive': True,
-
         'period': 7
     }
 
