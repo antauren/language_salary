@@ -1,3 +1,5 @@
+import requests
+
 from terminaltables import SingleTable
 
 from statistics import mean
@@ -56,7 +58,13 @@ def get_languages_stat_list(languages, fetch_records, get_predict_rub_salary, de
     languages = tqdm(languages, desc=desc)
 
     for language in languages:
-        vacancies = fetch_records(language)
+
+        try:
+            vacancies = list(fetch_records(language))
+
+        except requests.exceptions.HTTPError as error:
+            print("Can't get data from server:\n{}".format(error))
+            continue
 
         salary_list = list(map(get_predict_rub_salary, vacancies))
 
