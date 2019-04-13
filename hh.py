@@ -30,7 +30,9 @@ def get_predict_rub_salary_hh(vacancy_dict):
     return get_predict_salary(salary_dict['from'], salary_dict['from'])
 
 
-def fetch_records_hh(text, params):
+def fetch_records_hh(text: str, params: dict):
+    params = params.copy()
+
     params['text'] = text
 
     path = 'https://api.hh.ru/vacancies'

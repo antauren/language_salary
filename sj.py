@@ -26,8 +26,10 @@ def get_predict_rub_salary_sj(vacancy):
     return get_predict_salary(payment_from, payment_to)
 
 
-def fetch_records_sj(text, params, headers):
+def fetch_records_sj(text: str, params: dict, headers: dict):
     path = 'https://api.superjob.ru/2.0/vacancies/'
+
+    params = params.copy()
 
     params['keywords'] = text
 
