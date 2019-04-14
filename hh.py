@@ -47,9 +47,7 @@ def fetch_records_hh(text: str, params: dict):
         params['page'] = page
 
         response = requests.get(path, params=params)
-        if not response.ok:
-            response.raise_for_status()
-            continue
+        response.raise_for_status()
 
         page_data = response.json()
 

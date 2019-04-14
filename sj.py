@@ -39,9 +39,7 @@ def fetch_records_sj(text: str, params: dict, headers: dict):
         params['page'] = page
 
         response = requests.get(path, headers=headers, params=params)
-        if not response.ok:
-            response.raise_for_status()
-            continue
+        response.raise_for_status()
 
         page_data = response.json()
 
